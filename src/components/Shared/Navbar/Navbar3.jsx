@@ -15,7 +15,7 @@ import LoadingSpinner from "../LoadingSpinner";
 import useAxiosNormal from "../../../hooks/useAxiosNormal";
 
 const Navbar3 = () => {
-  const { user, logOut } = useAuth();
+  const { user, logOut, loading } = useAuth();
   const axiosNormal = useAxiosNormal();
 
   const { data: HrManager = {} } = useQuery({
@@ -39,6 +39,10 @@ const Navbar3 = () => {
       toast.success("LogOut successfully");
     });
   };
+
+  if (loading) {
+    return <LoadingSpinner/>
+  }
   const links = (
     <>
       {user ? (

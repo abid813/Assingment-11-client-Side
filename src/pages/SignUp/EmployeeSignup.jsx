@@ -154,7 +154,7 @@ const SignUp = () => {
               {errors.password?.type === "required" && (
                 <p className="text-red-500 text-sm">Password is Required</p>
               )}
-              {errors.password?.type === "minlength" && (
+              {errors.password?.type === "minLength" && (
                 <p className="text-red-500 text-sm">
                   Password must be at least 6 character
                 </p>
