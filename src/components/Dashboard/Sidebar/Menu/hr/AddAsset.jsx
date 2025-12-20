@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { imageUpload } from "../../../../../ImageGenerate";
 import useAuth from "../../../../../hooks/useAuth";
@@ -6,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosNormal from "../../../../../hooks/useAxiosNormal";
 import useAxiosSecure from "../../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { TbFidgetSpinner } from "react-icons/tb";
 const AddAsset = () => {
   const { user } = useAuth();
   const axiosNormal = useAxiosNormal();
@@ -29,7 +29,6 @@ const AddAsset = () => {
     const { name, image, productType, quantity } = data;
     const imageFile = image[0];
     const imageURL = await imageUpload(imageFile);
-    // console.log(imageURL, name, productType, Number(quantity));
     const productInfo = {
       productName: name,
       productImage: imageURL,
@@ -49,6 +48,7 @@ const AddAsset = () => {
           draggable: true,
         });
         reset();
+        setLoading(false);
       }
     });
   };
@@ -120,7 +120,11 @@ const AddAsset = () => {
 
         {/* Submit Button */}
         <button className="w-full bg-[#9435E7] text-white p-3 rounded-xl font-semibold hover:bg-[#9435E740] hover:text-[#9435E7] transition ">
-          Submit
+          {isLoading ? (
+            <TbFidgetSpinner className="animate-spin m-auto" />
+          ) : (
+            "Submit"
+          )}
         </button>
       </form>
     </div>

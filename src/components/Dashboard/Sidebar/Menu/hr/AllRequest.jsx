@@ -15,6 +15,7 @@ const AllRequest = () => {
   const modalRef = useRef(null);
   const [assetId, setAssetId] = useState();
   const [search, setSearch] = useState("");
+
   const { refetch, data: requestData = [] } = useQuery({
     queryKey: ["requestData", search, user?.email],
     queryFn: async () => {
@@ -23,12 +24,31 @@ const AllRequest = () => {
     },
   });
 
-  const updateStatus = (data, status, quantity,id,productQuantity) => {
+  //  const { data: myEmployee = [] } = useQuery({
+  //     queryKey: ["myEmployee", user?.uid],
+  //     queryFn: async () => {
+  //       const res = await axiosInstance.get(
+  //         `/employee?HRManagerUid=${user?.uid}`
+  //       );
+  //       return res.data;
+  //     },
+  //   });
+
+    // console.log("my employee", myEmployee,"requestedData", requestData);
+    // const filterData = requestData.map(req.requestedEmail === )
+
+
+
+
+  const updateStatus = (data, status, quantity,id,productQuantity,requestedEmail,requestedAsset, requestedId) => {
     const updatedStatus = {
       status: status,
       quantity: quantity,
       productId:id,
-      productQuantity:productQuantity
+      productQuantity:productQuantity,
+      requestedEmail,
+      requestedAsset,
+      requestedId
     };
 
     Swal.fire({
@@ -58,7 +78,7 @@ const AllRequest = () => {
   };
 
   const handleApprove = (data) => {
-    updateStatus(data, "approve", 1, data.productInfo.productId, data.productInfo.productQuantity);
+    updateStatus(data, "approve", 1, data.productInfo.productId, data.productInfo.productQuantity,data.requestedEmail, data.requestedAsset, data.requestedId);
   };
 
   const handleReject = (data) => {

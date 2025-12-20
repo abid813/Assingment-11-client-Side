@@ -20,11 +20,13 @@ const MyAsset = () => {
     queryKey: ["myAsset", search, filter, user?.email],
     queryFn: async () => {
       const res = await axiosInstance.get(
-        `/requestData/?email=${user?.email}&search=${search}&filter=${filter}`
+        `/requestData?email=${user?.email}&search=${search}&filter=${filter}`
       );
       return res.data;
     },
   });
+
+  console.log(requestData);
 
   const handleFilter = (e) => {
     setFilter(e.target.value);

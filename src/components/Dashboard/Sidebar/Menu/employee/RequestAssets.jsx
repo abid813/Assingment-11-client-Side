@@ -21,6 +21,15 @@ const AssetList = () => {
     },
   });
 
+  const {data:employeeData = {}} = useQuery({
+    queryKey:["employee", user?.email],
+    queryFn: async () => {
+      const res = await axiosInstance.get(`/employee/${user?.email}`)
+      return res.data
+    }
+  })
+
+
   const {
     register,
     handleSubmit,
@@ -43,6 +52,8 @@ const AssetList = () => {
       requestedPhotoURL: user?.photoURL,
       requestedUid: user?.uid,
       status: "pending",
+      requestedId:employeeData?._id,
+      requestedAsset:employeeData?.assetCount,
       productInfo: {
         companyName: assetData?.companyName,
         dateAdded: assetData?.dateAdded,

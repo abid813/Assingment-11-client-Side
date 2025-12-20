@@ -44,7 +44,7 @@ const SignUp = () => {
           console.log("after register", res.data);
           if (res.data.insertedId) {
             toast.success("Register successfully");
-            navigate("/dashboard");
+            // navigate("/dashboard");
             reset();
           }
         });
