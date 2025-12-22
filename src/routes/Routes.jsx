@@ -24,6 +24,7 @@ import AddEmployee from "../components/Dashboard/Sidebar/Menu/hr/AddEmployee";
 import Packages from "../components/Dashboard/Sidebar/Menu/hr/Packages";
 import PaymentSuccess from "../components/Dashboard/Sidebar/Menu/hr/PaymentSuccess";
 import PaymentCancel from "../components/Dashboard/Sidebar/Menu/hr/PaymentCancel";
+import PaymentInfo from "../components/Dashboard/Sidebar/Menu/hr/PaymentInfo";
 // import LoginPage from "../pages/LoginPage/LoginPage";
 
 export const router = createBrowserRouter([
@@ -129,6 +130,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <PaymentCancel />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment-info",
+        element: (
+          <PrivateRoute>
+            <PaymentInfo />
           </PrivateRoute>
         ),
       },

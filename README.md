@@ -1,16 +1,89 @@
-# React + Vite
+# AssetVerse 🏢💼
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project Name AssetVerse
 
-Currently, two official plugins are available:
+# Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+AssetVerse is a Corporate Asset Management System designed to help companies efficiently manage physical assets (laptops, accessories, furniture, etc.) and track asset assignments across employees.
+It simplifies HR operations, improves accountability, and prevents asset loss.
 
-## React Compiler
+# 🌐 Live URL
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Client: https://final-assignment-4c484.web.app/
+Server:https://final-assignment-server-swart.vercel.app/
 
-## Expanding the ESLint configuration
+# 🚀 Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔐 Role-based authentication (HR & Employee)
+🏢 HR can manage company assets (add, update, delete)
+👨‍💼 Employee can request assets
+✅ HR approval & rejection system
+📊 Asset tracking (returnable & non-returnable)
+📈 Dashboard with summary & charts
+💳 Subscription-based employee limits (Stripe payment)
+🔍 Search & filter assets and requests
+📱 Fully responsive UI
+🔒 Protected routes & authorization
+📦 npm Packages Used
+
+# Frontend
+
+react
+react-router-dom
+axios
+@tanstack/react-query
+firebase
+stripe-js
+recharts
+lottie-react
+tailwindcss
+daisyui
+
+# Backend
+
+express
+cors
+mongodb
+dotenv
+jsonwebtoken
+stripe
+
+# ⚙️ Setup Instructions
+
+1️⃣ Clone the Repository
+git clone https://github.com/your-username/assetverse.git
+
+2️⃣ Client Setup
+cd assetverse-client
+npm install
+npm run dev
+
+3️⃣ Server Setup
+cd assetverse-server
+npm install
+nodemon index.js
+
+🔐 Environment Variables Configuration
+Client .env
+VITE_apiKey=AIzaSyDnrZ1aIr1tCXuvnphSsVWQDmwiOgKd4lE
+VITE_authDomain=final-assignment-4c484.firebaseapp.com
+VITE_projectId=final-assignment-4c484
+VITE_storageBucket=final-assignment-4c484.firebasestorage.app
+VITE_messagingSenderId=836894616664
+
+VITE_appId=1:836894616664:web:d0d8f7eba1750096362e2d
+VITE_IMGBB_API_URL=1f856e0cab89155e1dd3a07a901e1439
+VITE_API_URL=https://final-assignment-server-swart.vercel.app
+
+Server .env
+PORT=5000
+DB_USER=your_mongodb_username
+DB_PASS=your_mongodb_password
+ACCESS_TOKEN_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=your_stripe_secret_key
+SITE_DOMAIN=https://your-client-live-url.vercel.app
+
+# 🧪 Default Roles
+
+HR Manager: Can manage assets & employees
+Employee: Can request & track assigned assets

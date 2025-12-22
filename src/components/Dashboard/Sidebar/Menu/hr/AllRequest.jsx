@@ -24,21 +24,6 @@ const AllRequest = () => {
     },
   });
 
-  //  const { data: myEmployee = [] } = useQuery({
-  //     queryKey: ["myEmployee", user?.uid],
-  //     queryFn: async () => {
-  //       const res = await axiosInstance.get(
-  //         `/employee?HRManagerUid=${user?.uid}`
-  //       );
-  //       return res.data;
-  //     },
-  //   });
-
-    // console.log("my employee", myEmployee,"requestedData", requestData);
-    // const filterData = requestData.map(req.requestedEmail === )
-
-
-
 
   const updateStatus = (data, status, quantity,id,productQuantity,requestedEmail,requestedAsset, requestedId, hrEmail) => {
     const updatedStatus = {
