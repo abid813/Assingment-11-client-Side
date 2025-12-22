@@ -22,6 +22,8 @@ import MyTeam2 from "../components/Dashboard/Sidebar/Menu/employee/MyTeam";
 import RequestAssets from "../components/Dashboard/Sidebar/Menu/employee/RequestAssets";
 import AddEmployee from "../components/Dashboard/Sidebar/Menu/hr/AddEmployee";
 import Packages from "../components/Dashboard/Sidebar/Menu/hr/Packages";
+import PaymentSuccess from "../components/Dashboard/Sidebar/Menu/hr/PaymentSuccess";
+import PaymentCancel from "../components/Dashboard/Sidebar/Menu/hr/PaymentCancel";
 // import LoginPage from "../pages/LoginPage/LoginPage";
 
 export const router = createBrowserRouter([
@@ -111,6 +113,22 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddEmployee />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment-success",
+        element: (
+          <PrivateRoute>
+            <PaymentSuccess />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment-cancel",
+        element: (
+          <PrivateRoute>
+            <PaymentCancel />
           </PrivateRoute>
         ),
       },

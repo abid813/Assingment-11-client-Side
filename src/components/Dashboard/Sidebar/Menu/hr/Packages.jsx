@@ -1,19 +1,45 @@
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../../hooks/useAuth";
 const Packages = () => {
+  const { user, logOut, loading } = useAuth();
   const axiosInstance = useAxiosSecure();
   const { data: packagesInfo = [] } = useQuery({
     queryKey: ["packages"],
     queryFn: async () => {
-      const res = await axiosInstance.get("/packages")
-      return res.data
+      const res = await axiosInstance.get("/packages");
+      return res.data;
     },
   });
 
-  const handlePackages = pack => {
-    console.log(pack._id, pack.name);
-  }
+  const { data: HrManager = {} } = useQuery({
+    queryKey: ["HrManager", user?.email],
+    queryFn: async () => {
+      const res = await axiosNormal.get(`/hrManager?email=${user?.email}`);
+      return res.data;
+    },
+  });
+
+  const handlePackages = async (pack, hrInfo) => {
+    const paymentInfo = {
+      packageName: pack.name,
+      packageCost: pack.price,
+      employeeLimit: pack.employeeLimit,
+      packageId: pack._id,
+      hrPackage: hrInfo.subscription,
+      hrPackageLimit: hrInfo.packageLimit,
+      hrName: hrInfo.name,
+      hrEmail: hrInfo.email,
+      hrId: hrInfo._id,
+    };
+
+    const res = await axiosInstance.post(
+      "/create-checkout-session",
+      paymentInfo
+    );
+    window.location.href = res.data.url;
+  };
   return (
     <section className="py-20 " id="pricing">
       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
@@ -67,7 +93,10 @@ const Packages = () => {
               </ul>
 
               <div className="mt-8 text-center">
-                <button onClick={() => handlePackages(pack)} className="w-full py-3 bg-[#9435E7] text-white rounded-xl hover:bg-[#9435E760] transition font-semibold">
+                <button
+                  onClick={() => handlePackages(pack, HrManager)}
+                  className="w-full py-3 bg-[#9435E7] text-white rounded-xl hover:bg-[#9435E760] transition font-semibold"
+                >
                   Select Plan
                 </button>
               </div>

@@ -39,7 +39,7 @@ const MyTeam = () => {
         label={"My Team"}
       />
 
-      <div className="p-4">
+      <div className="px-4">
         {/* Company Selector */}
         <select
           className="w-64 border rounded-md px-3 py-2 text-gray-500 border-[#9435E7]"
@@ -78,7 +78,7 @@ const MyTeam = () => {
         </div>
 
         {/* Upcoming Birthdays */}
-        <div className="mt-10">
+        <div className="my-4">
           <h3 className="text-xl font-semibold mb-3 text-[#9435E7]">
             🎂 Upcoming Birthdays (This Month)
           </h3>
