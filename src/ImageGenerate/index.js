@@ -3,6 +3,7 @@ export const imageUpload = async (imageFile) => {
   const formData = new FormData();
   formData.append("image", imageFile);
   const imageData = await axios.post(
+    // https://api.imgbb.com/1/upload?expiration=600&key
     `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_URL}`,
     formData
   );

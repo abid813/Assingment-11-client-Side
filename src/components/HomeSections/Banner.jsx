@@ -27,7 +27,7 @@ const HeroBanner = ({
   subhead = "Track assets, approvals, and lifecycle with one secure dashboard.",
   primaryCta = { label: "Get Started", href: "#" },
   secondaryCta = { label: "Request Demo", href: "#" },
-  image = "https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f0b3c2b2f7f36f1a4d1b6a9f2f3d5d6",
+  image = "https://i.ibb.co.com/tw1PPqyz/logo.jpg",
 }) => {
   return (
     <Container>
