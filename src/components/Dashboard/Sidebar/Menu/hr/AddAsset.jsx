@@ -37,6 +37,7 @@ const AddAsset = () => {
       dateAdded: new Date().toLocaleDateString(),
       hrEmail: HrManager.email,
       companyName: HrManager.companyName,
+    
     };
 
     await axiosInstance.post("/assets", productInfo).then((res) => {
