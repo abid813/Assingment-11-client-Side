@@ -59,7 +59,7 @@ const HeroBanner = ({
             <div className="md:col-span-7 lg:col-span-6">
               <motion.div variants={itemVariantUp}>
                 <p className="inline-block text-sm font-medium uppercase text-sky-600/50 bg-sky-50/10 px-3 py-1 rounded-full mb-4">
-                  For Enterprise
+                  For Enterprise.
                 </p>
               </motion.div>
 
